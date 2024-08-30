@@ -1,0 +1,190 @@
+$dark-cyan: hsl(158, 36%, 37%);
+$cream: hsl(30, 38%, 92%);
+
+$very-dark-blue: hsl(212, 21%, 14%);
+$dark-grayish-blue: hsl(228, 12%, 48%);
+$white: hsl(0, 0%, 100%);
+
+$montserrat: "Montserrat", system-ui;
+$fraunces: "Fraunces", system-ui;
+
+body {
+  background-color: $cream;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 92%;
+  height: 600px;
+  background-color: $white;
+  margin: 35px auto;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  .image-container {
+    & .image-desktop {
+      display: none;
+    }
+    & .image-mobile {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+  }
+
+  .checkout {
+    padding: 25px;
+
+    & .checkout-category {
+      font-family: $montserrat;
+      font-weight: 500;
+      letter-spacing: 5px;
+      font-size: 14px;
+      color: $dark-grayish-blue;
+      margin-bottom: 14px;
+    }
+
+    & .checkout-title {
+      font-family: $fraunces;
+      font-weight: 700;
+      font-size: 32px;
+      color: $very-dark-blue;
+      margin-bottom: 16px;
+    }
+
+    & .checkout-description {
+      font-family: $montserrat;
+      font-weight: 500;
+      font-size: 14px;
+      color: $dark-grayish-blue;
+      line-height: 20px;
+      margin-bottom: 20px;
+    }
+
+    & .checkout-prices {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+      margin-bottom: 18px;
+
+      .checkout-prices-discount {
+        font-family: $fraunces;
+        font-weight: 700;
+        font-size: 32px;
+        color: $dark-cyan;
+      }
+
+      .checkout-prices-original {
+        font-family: $montserrat;
+        font-weight: 500;
+        font-size: 14px;
+        color: $dark-grayish-blue;
+        text-decoration-line: line-through;
+      }
+    }
+
+    & .checkout-button {
+      width: 100%;
+      border: none;
+      padding: 15px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      align-items: center;
+      background-color: $dark-cyan;
+      color: $white;
+      border-radius: 8px;
+      font-family: $montserrat;
+      font-weight: 500;
+
+      &:hover {
+        background-color: darken($dark-cyan, 15%);
+        cursor: pointer;
+      }
+
+      &:active {
+        background-color: darken($dark-cyan, 15%);
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.attribution {
+  font-family: $montserrat;
+  margin: 10px auto;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+@media only screen and (min-width: 440px) {
+  .card {
+    width: 395px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .card {
+    flex-direction: row;
+    width: 600px;
+    height: 450px;
+    position: absolute;
+    inset: 50% 0 0 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+
+    .image-container {
+      width: 55%;
+
+      & .image-desktop {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 10px 0 0 10px;
+      }
+      & .image-mobile {
+        display: none;
+      }
+    }
+
+    .checkout {
+      width: 45%;
+      padding: 35px;
+
+      & .checkout-category {
+        margin-bottom: 23px;
+      }
+
+      & .checkout-title {
+        margin-bottom: 23px;
+      }
+
+      & .checkout-description {
+        margin-bottom: 35px;
+      }
+
+      & .checkout-prices {
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .attribution {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media only screen and (min-height: 1024px) {
+  .card {
+    top: 30%;
+  }
+}
